@@ -4,11 +4,11 @@ module OmniAuth
   module Strategies
     class Census < OmniAuth::Strategies::OAuth2
       include OmniAuth::Strategy
-      attr_accessor :prod_site, :stag_site, :census_site
+      # attr_accessor :prod_site, :stag_site, :census_site
 
-      prod_site: "https://turing-census.herokuapp.com"
-      stag_site: "http://census-app-staging.herokuapp.com"
-      census_site: { ENV['RACK_ENV'] == 'production' ? prod_site : stag_site }
+      @@prod_site = "https://turing-census.herokuapp.com"
+      @@stag_site = "http://census-app-staging.herokuapp.com"
+      @@census_site = { ENV['RACK_ENV'] == 'production' ? prod_site : stag_site }
 
       option :client_options, {
                # site: "https://turing-census.herokuapp.com",
