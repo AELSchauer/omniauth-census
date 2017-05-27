@@ -7,6 +7,7 @@ module OmniAuth
       option :client_options, {
                # site: "https://turing-census.herokuapp.com",
                # site: "http://census-app-staging.herokuapp.com",
+               site: census_site,
                authorize_url: "/oauth/authorize",
                token_url: "/oauth/token"
              }
@@ -14,6 +15,16 @@ module OmniAuth
       def request_phase
         binding.pry
         super
+      end
+
+      def census_site
+        binding.pry
+        "http://census-app-staging.herokuapp.com"
+      end
+
+      def self.census_site
+        binding.pry
+        "http://census-app-staging.herokuapp.com"
       end
 
       def callback_url
