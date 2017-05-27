@@ -4,6 +4,10 @@ module OmniAuth
   module Strategies
     class Census < OmniAuth::Strategies::OAuth2
       include OmniAuth::Strategy
+      prod_site: "https://turing-census.herokuapp.com"
+      stag_site: "http://census-app-staging.herokuapp.com"
+      census_site: { ENV['RACK_ENV'] == 'production' ? prod_site : stag_site }
+
       option :client_options, {
                # site: "https://turing-census.herokuapp.com",
                # site: "http://census-app-staging.herokuapp.com",
@@ -15,16 +19,6 @@ module OmniAuth
       def request_phase
         binding.pry
         super
-      end
-
-      def census_site
-        binding.pry
-        "http://census-app-staging.herokuapp.com"
-      end
-
-      def self.census_site
-        binding.pry
-        "http://census-app-staging.herokuapp.com"
       end
 
       def callback_url
