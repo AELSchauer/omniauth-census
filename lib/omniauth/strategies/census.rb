@@ -6,16 +6,18 @@ module OmniAuth
       include OmniAuth::Strategy
       option :client_options, {
                # site: "https://turing-census.herokuapp.com",
-               site: "http://census-app-staging.herokuapp.com",
+               # site: "http://census-app-staging.herokuapp.com",
                authorize_url: "/oauth/authorize",
                token_url: "/oauth/token"
              }
 
       def request_phase
+        binding.pry
         super
       end
 
       def callback_url
+        binding.pry
         full_host + script_name + callback_path
       end
 
