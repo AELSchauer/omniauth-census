@@ -8,12 +8,12 @@ module OmniAuth
 
       @@prod_site = "https://turing-census.herokuapp.com"
       @@stag_site = "http://census-app-staging.herokuapp.com"
-      @@census_site = { ENV['RACK_ENV'] == 'production' ? prod_site : stag_site }
+      @@census_site = ENV['RACK_ENV'] == 'production' ? prod_site : stag_site
 
       option :client_options, {
                # site: "https://turing-census.herokuapp.com",
                # site: "http://census-app-staging.herokuapp.com",
-               site: census_site,
+               site: @@census_site,
                authorize_url: "/oauth/authorize",
                token_url: "/oauth/token"
              }
