@@ -10,7 +10,9 @@ module OmniAuth
       @@census_site = ENV['RACK_ENV'] == 'production' ? @@prod_site : @@stag_site
 
       option :client_options, {
-               site: @@census_site,
+               # site: "https://turing-census.herokuapp.com",
+               site: "http://census-app-staging.herokuapp.com",
+               # site: @@census_site,
                authorize_url: "/oauth/authorize",
                token_url: "/oauth/token"
              }
