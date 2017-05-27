@@ -25,6 +25,7 @@ module OmniAuth
       uid { raw_info["id"] }
 
       def raw_info
+        binding.pry
         @raw_info ||=
           access_token.get('/api/v1/user_credentials').parsed
       end
