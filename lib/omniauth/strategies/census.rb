@@ -5,7 +5,8 @@ module OmniAuth
     class Census < OmniAuth::Strategies::OAuth2
       include OmniAuth::Strategy
       option :client_options, {
-               site: "https://turing-census.herokuapp.com",
+               # site: "https://turing-census.herokuapp.com",
+               site: "http://census-app-staging.herokuapp.com",
                authorize_url: "/oauth/authorize",
                token_url: "/oauth/token"
              }
